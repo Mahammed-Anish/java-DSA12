@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int n =sc.nextInt();
+        int m = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i<n;i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+        Deque<Integer> dq = new ArrayDeque<>();
+        HashSet<Integer> hs = new HashSet<>();
+        int mx = 0;
+        for(int i = 0 ; i < n ; i++){
+            dq.add(arr[i]);
+            if(dq.size()>m){
+                int removed = dq.removeFirst();
+                if(!dq.contains(removed)){
+                    hs.remove(removed);
+                }
+            }
+            hs.add(arr[i]);
+            if(hs.size()>mx){
+                mx = hs.size();
+            }
+        }
+        System.out.println(mx);
+    }
+}
