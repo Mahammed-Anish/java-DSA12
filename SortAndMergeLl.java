@@ -32,7 +32,7 @@ public class SortAndMergeLl {
                 i++;
             } else if(ll1.get(i) > ll2.get(j)) {
                 ll3.add(ll2.get(j));
-                i++;
+                j++;
             }
         }
 
